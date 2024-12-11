@@ -1,5 +1,5 @@
 module "global_practice" {
-  for_each       = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
+  for_each        = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
   source          = "../modules/folders"
   organization_id = each.value.settings.gp-vending.organization_id
   folder_name     = each.value.settings.gp-vending.names_gp
@@ -7,7 +7,7 @@ module "global_practice" {
 }
 
 module "poc" {
-  for_each       = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
+  for_each        = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
   source          = "../modules/folders"
   organization_id = each.value.settings.gp-vending.organization_id
   folder_name     = each.value.settings.gp-vending.names_poc
@@ -15,7 +15,7 @@ module "poc" {
 }
 
 module "app_folder" {
-  for_each       = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
+  for_each        = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
   source          = "../modules/folders"
   organization_id = each.value.settings.gp-vending.organization_id
   folder_name     = each.value.settings.gp-vending.names_app
@@ -37,7 +37,7 @@ module "app_project" {
 }
 
 module "app_budget_alert" {
-  for_each       = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
+  for_each        = { for k, v in local.project_vending_data_map : k => v if v.settings.gp-vending != false }
   source          = "../modules/budget"
   project_name    = each.value.settings.gp-vending.project_name
   billing_id      = each.value.settings.gp-vending.billing_id
