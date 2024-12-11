@@ -1,1 +1,1 @@
-# sandbox-vending
+# sb-vending-repo
